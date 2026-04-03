@@ -1,0 +1,120 @@
+/* ================= FOOTER ================= */
+.footer {
+  width: 100%;
+  padding: clamp(3rem, 6vw, 4rem) 2rem;
+  background: #ffffff;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+.footer.dark {
+  background: #0a0a0a;
+  color: #e5e7eb;
+}
+
+/* ================= FOOTER STATS ================= */
+.footer-stats {
+  display: flex;
+  gap: clamp(2rem, 4vw, 4rem);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat {
+  min-width: 140px;
+}
+
+.stat strong {
+  display: block;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.stat span {
+  display: block;
+  margin-top: 6px;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  opacity: 0.85;
+}
+
+/* ================= SOCIAL ICONS ================= */
+.footer-socials {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.footer-socials a {
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #ff7a00; /* orange highlight on hover */
+  transform: scale(1.1);
+}
+
+/* ================= DOWNLOAD CTA ================= */
+.footer-cta {
+  margin-top: 1rem;
+}
+
+.download-btn {
+  background: #ff7a00;
+  color: #fff;
+  border: none;
+  padding: clamp(0.8rem, 1.2vw, 0.95rem)
+    clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(0.9rem, 1vw, 0.95rem);
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease, color 0.25s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 122, 0, 0.25);
+}
+
+/* ================= COPYRIGHT ================= */
+.footer-copy {
+  font-size: clamp(0.8rem, 1vw, 0.85rem);
+  opacity: 0.8;
+  margin-top: 1.5rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .footer-stats {
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: clamp(2.5rem, 5vw, 3rem) 1.5rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .footer-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .download-btn {
+    width: clamp(200px, 50%, 220px);
+  }
+}

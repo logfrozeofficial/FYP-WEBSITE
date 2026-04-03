@@ -1,0 +1,95 @@
+/* =================================
+   INFO SECTION (FB-LIKE FLOW)
+   ================================= */
+
+:root {
+  --card-bg: #ffffff;
+  --sub-card-bg: #f6f7f8;
+  --text-color: #222;
+  --muted-text: #666;
+  --accent: #006989;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+  --card-bg: #121212;
+  --sub-card-bg: #1e1e1e;
+  --text-color: #eaeaea;
+  --muted-text: #aaa;
+  --accent: #00a86b;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+}
+
+/* Container */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Cards */
+.info-section,
+.contact-section {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+/* User Info */
+.user-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.member-since {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  margin-bottom: 14px;
+}
+
+.info-cards {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  flex: 1 1 140px;
+  background: var(--sub-card-bg);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Contact */
+.contact-section h3 {
+  margin-bottom: 14px;
+  font-size: 1.2rem;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.contact-info .icon {
+  color: var(--accent);
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .info-section,
+  .contact-section {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .info-cards {
+    flex-direction: column;
+  }
+}

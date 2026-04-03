@@ -1,0 +1,108 @@
+/* ═══════════════════════════════
+   SHOP PAGE — SERVAX
+   ═══════════════════════════════ */
+
+.dashboard-shop {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.dashboard-shop h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Info Card */
+.shop-info {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.shop-info p {
+  font-size: 14px;
+}
+
+.shop-info strong {
+  color: var(--primary);
+}
+
+/* Images Section */
+.shop-images {
+  margin-top: 30px;
+}
+
+.shop-images h3 {
+  margin-bottom: 10px;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.img-placeholder {
+  height: 120px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.img-placeholder:hover {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.shop-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.shop-actions button {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.shop-actions button:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* Logout Button */
+.logout {
+  background: #e63946 !important;
+}
+
+.logout:hover {
+  background: #ff4d5a !important;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .shop-info {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-actions {
+    flex-direction: column;
+  }
+}

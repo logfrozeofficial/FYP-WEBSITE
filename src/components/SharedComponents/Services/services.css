@@ -1,0 +1,409 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SERVAX — services.css
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Section shell ──────────────────────────────────────────────── */
+/*
+  .svc-section is placed inside .lp-section which is managed by
+  landingPage.css. On desktop that parent is height:100dvh, padding:0.
+  So .svc-section must NOT set its own height or conflicting padding —
+  it just fills its parent and lets .svc-inner handle the offset.
+*/
+.svc-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: transparent;   /* background comes from lp-page */
+  overflow: hidden;
+}
+
+/* ── Inner content wrapper — this is what gets the top padding ──── */
+/*
+  We offset from the top of the viewport using padding-top on this
+  inner div. Because it lives inside the snap section (not the fixed
+  nav), padding-top here pushes content DOWN without affecting snap.
+*/
+.svc-inner {
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 84px 24px 40px;   /* 84px = navbar pill 60px + 12px gap + 12px air */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.svc-header {
+  text-align: center;
+  margin-bottom: 48px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.svc-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.svc-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ff7a00;
+}
+
+.svc-see-all {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ff7a00;
+  text-decoration: none;
+  padding: 6px 14px;
+  background: rgba(255, 122, 0, 0.08);
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.svc-see-all:hover {
+  background: #ff7a00;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 122, 0, 0.2);
+}
+
+.svc-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #ff7a00, #ffb347);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.svc-subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+}
+
+/* ── Dark mode text ─────────────────────────────────────────────── */
+.dark .svc-subtitle  { color: #666; }
+.dark .svc-card-name { color: #f0ede8; }
+.dark .svc-card-desc { color: #666; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESKTOP 3D CAROUSEL
+   ═══════════════════════════════════════════════════════════════════ */
+.svc-carousel-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.svc-scene {
+  width: 100%;
+  height: 300px;
+  perspective: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svc-carousel-3d {
+  width: 200px;
+  height: 230px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.svc-card {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.svc-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 20px;
+  height: 20px;
+  background: #ff7a00;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(255, 122, 0, 0.4);
+}
+
+.svc-card-inner {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 22px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,122,0,0.08);
+  cursor: pointer;
+  transition: box-shadow 0.4s ease;
+  backface-visibility: hidden;
+}
+
+.svc-card-inner:hover {
+  box-shadow: 0 20px 56px rgba(255,122,0,0.22), 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.dark .svc-card-inner {
+  background: #1a1a1a;
+  border-color: rgba(255,122,0,0.12);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* ── Icon ───────────────────────────────────────────────────────── */
+.svc-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,122,0,0.12), rgba(255,170,0,0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.svc-emoji      { font-size: 1.8rem; line-height: 1; }
+.svc-card-name  { font-size: 1rem; font-weight: 600; color: #1a1a1a; margin-bottom: 5px; }
+.svc-card-desc  { font-size: 0.8rem; color: #888; line-height: 1.5; max-width: 160px; }
+
+/* ── Nav buttons ────────────────────────────────────────────────── */
+.svc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,122,0,0.1);
+  color: #ff7a00;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.svc-btn:hover {
+  background: #ff7a00;
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(255,122,0,0.4);
+}
+
+.svc-prev { position: absolute; left: 0; }
+.svc-next { position: absolute; right: 0; }
+
+/* ── Dots ───────────────────────────────────────────────────────── */
+.svc-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 28px;
+  flex-shrink: 0;
+}
+
+.svc-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,122,0,0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.svc-dot.active {
+  background: #ff7a00;
+  width: 22px;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE FLAT STACK
+   ═══════════════════════════════════════════════════════════════════ */
+.svc-mobile-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.svc-mobile-track {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.svc-mobile-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(280px, 82vw);
+  height: 210px;
+  background: #fff;
+  border-radius: 22px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+  border: 1px solid rgba(255,122,0,0.1);
+  transform: translateX(120%) translateX(-50%);
+  opacity: 0;
+  transition: transform 0.42s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease, box-shadow 0.3s ease;
+  pointer-events: none;
+}
+
+.svc-mobile-card.active {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0 16px 48px rgba(255,122,0,0.15), 0 4px 12px rgba(0,0,0,0.07);
+  z-index: 2;
+}
+
+.svc-mobile-card.peek-right {
+  transform: translateX(38%) translateX(-50%) scale(0.88);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.svc-mobile-card.peek-left {
+  transform: translateX(-138%) translateX(-50%) scale(0.88);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.svc-mobile-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .svc-mobile-card {
+  background: #1a1a1a;
+  border-color: rgba(255,122,0,0.14);
+}
+
+.svc-mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Desktop ≥1025px ── */
+@media (min-width: 1025px) {
+  /*
+    Parent lp-section is height:100dvh with padding:0 (from landingPage.css).
+    .svc-inner padding-top:84px keeps content below the navbar.
+    No min-height needed — parent enforces the height.
+  */
+  .svc-inner        { padding: 84px 32px 36px; }
+  .svc-scene        { height: 320px; }
+  .svc-carousel-3d  { width: 210px; height: 250px; }
+  .svc-header       { margin-bottom: 40px; }
+}
+
+/* ── Tablet 769–1024px ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  /*
+    Mobile top strip: ~54px at 10px from top = 64px + 14px air = 78px
+    Bottom: 68px tab bar + 16px air = 84px
+  */
+  .svc-inner  { padding: 78px 20px 84px; }
+  .svc-scene  { height: 280px; }
+  .svc-carousel-3d { width: 175px; height: 210px; }
+  .svc-header { margin-bottom: 36px; }
+}
+
+/* ── Mobile ≤768px ── */
+@media (max-width: 768px) {
+  /*
+    Mobile top strip: 50px at 10px from top = 60px + 14px = 74px
+    Bottom: 68px tab bar + 12px = 80px
+  */
+  .svc-inner {
+    padding: 74px 16px 80px;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .svc-header       { margin-bottom: 24px; }
+  .svc-title        { font-size: clamp(1.4rem, 5.5vw, 1.9rem); }
+  .svc-subtitle     { font-size: 0.82rem; }
+  .svc-dots         { margin-top: 0; }
+}
+
+/* ── Small phone ≤480px ── */
+@media (max-width: 480px) {
+  .svc-inner          { padding: 68px 12px 76px; }
+  .svc-mobile-card    { width: min(256px, 86vw); height: 200px; }
+  .svc-mobile-track   { height: 218px; }
+  .svc-icon-wrap      { width: 52px; height: 52px; }
+  .svc-emoji          { font-size: 1.55rem; }
+  .svc-card-name      { font-size: 0.92rem; }
+  .svc-card-desc      { font-size: 0.76rem; }
+}
+
+/* ── Tiny ≤360px ── */
+@media (max-width: 360px) {
+  .svc-mobile-card { width: 88vw; }
+}
+
+/* ================= RTL NAVIGATION FIX ================= */
+[dir='rtl'] .svc-prev {
+  right: auto;
+  left: 0;
+}
+
+[dir='rtl'] .svc-next {
+  left: auto;
+  right: 0;
+}
+

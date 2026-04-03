@@ -1,0 +1,62 @@
+.all-providers-container {
+  max-width: 1200px;
+  margin: 80px auto 40px;
+  padding: 0 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.screen-title {
+  text-align: center;
+  color: #ff7a00;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.job-section {
+  margin-bottom: 40px;
+}
+
+.job-title {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.providers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.provider-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.provider-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.provider-card strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.provider-card p {
+  margin: 2px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .all-providers-container {
+    margin: 60px 10px 30px;
+  }
+}

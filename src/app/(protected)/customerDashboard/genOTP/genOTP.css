@@ -1,0 +1,71 @@
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* ================= PAGE LAYOUT ================= */
+.otp-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: #fef8f5;
+}
+
+.otp-card {
+  background: #fff;
+  padding: 3rem 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.otp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.otp-card h2 {
+  font-size: 2rem;
+  color: #ff7a00;
+  margin-bottom: 1.5rem;
+}
+
+.otp-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 0.2rem;
+  margin-bottom: 2rem;
+}
+
+.otp-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ================= PHONE RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .otp-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .otp-number {
+    font-size: 2rem;
+  }
+}

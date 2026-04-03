@@ -1,0 +1,329 @@
+/* ═══════════════════════════════════════
+   SERVAX PROVIDER DASHBOARD (ORANGE MODERN)
+   ═══════════════════════════════════════ */
+
+/* ===== ROOT THEME ===== */
+:root {
+  --primary: #ff7a00;
+  --primary-light: #ff9a3c;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --card-bg: #ffffff;
+  --border: #eee;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Mode */
+.dark {
+  --bg: #0f0f0f;
+  --text: #f5f5f5;
+  --card-bg: #1a1a1a;
+  --border: #2a2a2a;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== GLOBAL ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.provider-dashboard {
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════
+   NAVBAR
+   ═══════════════════════════════════════ */
+
+.provider-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Left */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.provider-name {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Center Links */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-links li:hover {
+  color: var(--primary);
+}
+
+/* Active tab */
+.nav-links .active a {
+  color: var(--primary);
+}
+
+.nav-links .active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.revenue {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.icon {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  color: var(--primary);
+}
+
+/* ═══════════════════════════════════════
+   CONTENT
+   ═══════════════════════════════════════ */
+
+.provider-content {
+  padding: 30px;
+}
+
+/* ═══════════════════════════════════════
+   HOME (CARDS)
+   ═══════════════════════════════════════ */
+
+.dashboard-home h2 {
+  margin-bottom: 20px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: 0.3s;
+  border: 1px solid var(--border);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Hover effect */
+.card.clickable {
+  cursor: pointer;
+}
+
+.card.clickable:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(255, 122, 0, 0.2);
+}
+
+/* ═══════════════════════════════════════
+   SHOP PAGE
+   ═══════════════════════════════════════ */
+
+.dashboard-shop h2 {
+  margin-bottom: 20px;
+}
+
+.shop-info {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  line-height: 1.8;
+}
+
+.shop-info p strong {
+  color: var(--primary);
+}
+
+/* Images */
+.shop-images {
+  margin-top: 25px;
+}
+
+.images-grid {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.img-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+/* Actions */
+.shop-actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.shop-actions button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-actions button:hover {
+  background: var(--primary-light);
+}
+
+.logout {
+  background: #e63946 !important;
+}
+
+.logout:hover {
+  background: #ff4d5a !important;
+}
+
+/* ═══════════════════════════════════════
+   FEEDBACK
+   ═══════════════════════════════════════ */
+
+.dashboard-feedback h2 {
+  margin-bottom: 20px;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feedback-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.feedback-card strong {
+  color: var(--primary);
+}
+
+/* Media */
+.feedback-media {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.feedback-media img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE 📱
+   ═══════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none; /* later can add hamburger */
+  }
+
+  .provider-navbar {
+    padding: 0 15px;
+  }
+
+  .provider-content {
+    padding: 20px;
+  }
+
+  .images-grid {
+    flex-wrap: wrap;
+  }
+}

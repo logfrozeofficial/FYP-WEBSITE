@@ -1,0 +1,248 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SERVAX — landingPage.css
+   Mobile-first. Scroll snap only on desktop where sections fit.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Reset ──────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ── Page root ──────────────────────────────────────────────────── */
+.lp-page {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #faf8f5;
+  color: #1a1a1a;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.lp-page.dark {
+  background: #0a0a0a;
+  color: #eee;
+}
+
+/* ── Main scroll container ──────────────────────────────────────── */
+/*
+  DESKTOP: full-screen snap — one section per viewport, feels premium.
+  MOBILE:  disable snap entirely. Sections become natural height,
+           content breathes, no clipping, normal smooth scroll.
+*/
+.lp-main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Section base ───────────────────────────────────────────────── */
+.lp-section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ── HERO ───────────────────────────────────────────────────────── */
+.lp-hero {
+  /* Full viewport on desktop, auto on mobile */
+  min-height: 100vh;
+  padding-top: 80px;   /* clears fixed navbar */
+}
+
+/* ── SERVICES ───────────────────────────────────────────────────── */
+.lp-services {
+  min-height: 100vh;
+  padding: 80px 20px;
+  align-items: flex-start;
+}
+
+/* ── HOW IT WORKS ───────────────────────────────────────────────── */
+.lp-hiw {
+  min-height: 100vh;
+  padding: 80px 20px;
+  align-items: flex-start;
+}
+
+/* ── PROVIDERS ──────────────────────────────────────────────────── */
+.lp-providers {
+  min-height: 100vh;
+  padding: 80px 20px;
+  align-items: flex-start;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────────── */
+.lp-footer {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESKTOP  ≥ 1025px
+   Re-enable scroll snap. Sections are exactly 100dvh.
+   Bottom padding accounts for no tab bar.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (min-width: 1025px) {
+  .lp-main {
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    /* Hide scrollbar visually but keep functional */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,122,0,0.3) transparent;
+  }
+
+  .lp-main::-webkit-scrollbar        { width: 4px; }
+  .lp-main::-webkit-scrollbar-track  { background: transparent; }
+  .lp-main::-webkit-scrollbar-thumb  { background: rgba(255,122,0,0.35); border-radius: 4px; }
+
+  .lp-section {
+    height: 100dvh;
+    min-height: unset;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 0;
+    align-items: center;
+  }
+
+  .lp-footer {
+    height: auto;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .lp-hero {
+    padding-top: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TABLET  769px – 1024px
+   No snap. Top strip + bottom tab bar visible (from navbar.css).
+   Add bottom padding so content clears the tab bar.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .lp-page {
+    /* Body scroll — no overflow trap */
+    overflow-y: auto;
+  }
+
+  .lp-hero {
+    min-height: 100svh;           /* svh = small viewport height, ignores browser chrome */
+    padding-top: 72px;            /* mobile top strip height */
+    padding-bottom: 80px;         /* bottom tab bar */
+  }
+
+  .lp-services,
+  .lp-hiw,
+  .lp-providers {
+    min-height: auto;             /* let content determine height */
+    padding-top: 48px;
+    padding-bottom: 80px;         /* clears tab bar */
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .lp-footer {
+    padding-bottom: 80px;         /* clears tab bar */
+  }
+
+  /* Page itself must scroll normally */
+  body {
+    overflow-y: auto;
+    padding-bottom: 0;            /* handled per-section */
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PHONE  ≤ 768px
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .lp-hero {
+    padding-top: 68px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 76px;
+    min-height: 100svh;
+    align-items: flex-start;
+  }
+
+  .lp-services,
+  .lp-hiw,
+  .lp-providers {
+    padding: 40px 12px 76px;
+  }
+
+  .lp-footer {
+    padding-bottom: 76px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SMALL PHONE  ≤ 480px
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .lp-hero {
+    padding-top: 62px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 70px;
+  }
+
+  .lp-services,
+  .lp-hiw,
+  .lp-providers {
+    padding: 32px 10px 70px;
+  }
+
+  .lp-footer {
+    padding-bottom: 70px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DARK MODE — section tints (Point 3: Unified Rhythm)
+   ═══════════════════════════════════════════════════════════════════ */
+.lp-page.dark .lp-services {
+  background: #121212;
+}
+
+.lp-page.dark .lp-hiw {
+  background: #0a0a0a;
+}
+
+.lp-page.dark .lp-providers {
+  background: #121212;
+}
+
+/* ── Light mode alternating section tints ───────────────────────── */
+.lp-page:not(.dark) .lp-services {
+  background: rgba(255,122,0,0.03);
+}
+
+.lp-page:not(.dark) .lp-hiw {
+  background: #fff;
+}
+
+.lp-page:not(.dark) .lp-providers {
+  background: rgba(255,122,0,0.03);
+}
